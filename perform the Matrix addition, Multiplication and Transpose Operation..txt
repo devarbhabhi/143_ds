@@ -1,0 +1,105 @@
+#include <iostream>
+        using namespace std;
+        
+        class Test {
+        public:
+            int a[3][3], b[3][3], c[3][3];
+        
+            void insert() {
+                cout << "Enter 3x3 elements in first 2D array" << endl;
+                for (int i = 0; i < 3; i++) {
+                    for (int j = 0; j < 3; j++) {
+                        cin >> a[i][j];
+                    }
+                }
+                cout << "Enter 3x3 elements in second 2D array" << endl;
+                for (int i = 0; i < 3; i++) {
+                    for (int j = 0; j < 3; j++) {
+                        cin >> b[i][j];
+                    }
+                }
+            }
+        
+            void add() {
+                cout << "After addition of two arrays" << endl;
+                for (int i = 0; i < 3; i++) {
+                    for (int j = 0; j < 3; j++) {
+                        c[i][j] = a[i][j] + b[i][j];
+                    }
+                }
+            }
+        
+            void mul() {
+                for (int i = 0; i < 3; i++) {
+                    for (int j = 0; j < 3; j++) {
+                        c[i][j] = 0;
+                    }
+                }
+                cout << "After multiplication of two arrays" << endl;
+                for (int i = 0; i < 3; i++) {
+                    for (int j = 0; j < 3; j++) {
+                        for (int k = 0; k < 3; ++k) {
+                            c[i][j] += a[i][k] * b[k][j];
+                        }
+                    }
+                }
+            }
+        
+            void trans() {
+                cout << "After transpose operation" << endl;
+                for (int i = 0; i < 3; i++) {
+                    for (int j = 0; j < 3; j++) {
+                        c[i][j] = a[j][i];
+                    }
+                }
+            }
+        
+            void show() {
+                for (int i = 0; i < 3; i++) {
+                    for (int j = 0; j < 3; j++) {
+                        cout << "\t" << c[i][j];
+                    }
+                    cout << endl;
+                }
+            }
+        };
+        
+        int main() {
+            int n;
+            char ch;
+            Test t;
+        
+            do {
+                cout << "Select your choice\n1. Insert\n2. Addition\n3. Multiplication\n4. Transpose\n5. Exit\n";
+                cin >> n;
+        
+                switch (n) {
+                    case 1:
+                        t.insert();
+                        break;
+                    case 2:
+                        t.add();
+                        t.show();
+                        break;
+                    case 3:
+                        t.mul();
+                        t.show();
+                        break;
+                    case 4:
+                        t.trans();
+                        t.show();
+                        break;
+                    case 5:
+                        exit(0);
+                    default:
+                        cout << "Invalid input" << endl;
+                }
+        
+                cout << "Do you want to continue? (y/n)" << endl;
+                cin >> ch;
+            } while (ch == 'y' || ch == 'Y');
+        
+            return 0;
+        }
+        
+    

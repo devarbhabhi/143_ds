@@ -1,0 +1,33 @@
+class Stack:
+    def __init__(self):
+        self.items = []
+
+    def isEmpty(self):
+        return self.items == []
+
+    def push(self, item):
+        self.items.insert(0, item)
+
+    def pop(self):
+        return self.items.pop(0)
+
+    def peek(self):
+        return self.items[0] if not self.isEmpty() else None
+
+    def size(self):
+        return len(self.items)
+
+    def getElements(self):
+        return self.items
+
+s = Stack()
+s.push('Hello')
+s.push('world')
+s.push('10')
+s.push('20')
+
+print("The elements of the stack are:", s.getElements())
+print(s.pop())
+print("The elements of the stack are:", s.getElements())
+
+    

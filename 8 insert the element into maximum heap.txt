@@ -1,0 +1,22 @@
+      data = [0, 85, 72, 60, 65, 55, 40, 35, 44, 65, 45]
+
+def insertion(new):
+    print("Heap elements are")
+    n = len(data)
+    pos = n
+    data.insert(pos, new)
+    print(data)
+    
+    if pos != 0:
+        while data[int(pos/2)] <= new and int(pos/2) >= 1:
+            data[pos] = data[int(pos/2)]
+            data[int(pos/2)] = new
+            print(data)
+            pos = int(pos/2)
+    
+    print("Heap data in array format")
+    print(data)
+
+insertion(92)
+
+    

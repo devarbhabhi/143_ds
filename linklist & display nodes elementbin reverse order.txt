@@ -1,0 +1,47 @@
+class Node(object):
+    def __init__(self, data, next=None):
+        self.data = data
+        self.next = next
+
+class singleList(object):
+    def __init__(self):
+        self.head = None
+        self.tail = None
+
+    def show(self):
+        print("Showing list data:")
+        current_node = self.head
+        while current_node is not None:
+            print(current_node.data, "->", end=" ")
+            current_node = current_node.next
+        print(None)
+
+    def insertion(self, data):
+        node = Node(data, None)
+        if self.head is None:
+            self.head = self.tail = node
+        else:
+            self.tail.next = node
+            self.tail = node
+
+    def search(self, node_value):
+        current_node = self.head
+        found = False
+        print("Searching for", node_value, "in linked list")
+        while current_node is not None and not found:
+            if current_node.data == node_value:
+                found = True
+            current_node = current_node.next
+        return found
+
+s = singleList()
+s.insertion(31)
+s.insertion(2)
+s.insertion(3)
+s.insertion(4)
+s.show()
+print("Search:", s.search(31))
+print("Search:", s.search(30))
+s.show()
+
+    

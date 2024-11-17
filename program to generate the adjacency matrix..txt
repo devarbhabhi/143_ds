@@ -1,0 +1,20 @@
+      print("Enter details of graph")
+x = int(input("Enter number of nodes: "))
+a = [[0 for i in range(6)] for j in range(6)]
+
+print("Insert node-wise edges")
+for i in range(x):
+    print("Enter the number of edges coming out from node", i)
+    y = int(input("Number of edges: "))
+    for j in range(y):
+        ed = int(input("End node: "))
+        a[i][ed] = 1
+    print("\n")
+
+print("Adjacency Matrix")
+for i in range(x):
+    for j in range(x):
+        print(a[i][j], end="")
+    print()
+
+    

@@ -1,0 +1,20 @@
+def linearsearch(alist, item):
+    pos = 0
+    found = False
+    while pos < len(alist) and not found:
+        if alist[pos] == item:
+            found = True
+        else:
+            pos += 1
+    return found
+
+testlist = [1, 2, 32, 8, 17, 19, 42, 13, 0]
+item = int(input('Enter the number you want to search: '))
+isitfound = linearsearch(testlist, item)
+
+if isitfound:
+    print('Your number is in the list.')
+else:
+    print('Your number is not in the list.')
+
+    

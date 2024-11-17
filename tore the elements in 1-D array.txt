@@ -1,0 +1,90 @@
+      #include <iostream>
+        using namespace std;
+        
+        class single {
+        public:
+            int a[5];
+            int b[5];
+        
+            void getdata() {
+                cout << "Enter five elements in array:\n";
+                for (int i = 0; i < 5; i++) {
+                    cin >> a[i];
+                    b[i] = a[i];
+                }
+            }
+        
+            void search(int k) {
+                for (int i = 0; i < 5; i++) {
+                    if (k == a[i]) {
+                        cout << "Search successful at position " << i << endl;
+                        return;
+                    }
+                }
+                cout << "Element not found in the array." << endl;
+            }
+        
+            void sort() {
+                int temp;
+                for (int i = 0; i < 4; i++) {
+                    for (int j = i + 1; j < 5; j++) {
+                        if (b[i] > b[j]) {
+                            temp = b[i];
+                            b[i] = b[j];
+                            b[j] = temp;
+                        }
+                    }
+                }
+                cout << "Sorted items are: ";
+                for (int i = 0; i < 5; i++) {
+                    cout << b[i] << " ";
+                }
+                cout << endl;
+            }
+        
+            void reverse() {
+                for (int i = 4, j = 0; i >= 0; i--, j++) {
+                    b[j] = a[i];
+                }
+                cout << "After reversing the array elements: ";
+                for (int i = 0; i < 5; i++) {
+                    cout << b[i] << " ";
+                }
+                cout << endl;
+            }
+        };
+        
+        int main() {
+            single o;
+            int k;
+            o.getdata();
+            char ans;
+            do {
+                cout << "Enter your choice:\n1. Search\n2. Sort\n3. Reverse\n4. Exit\n";
+                int ch;
+                cin >> ch;
+                switch (ch) {
+                    case 1:
+                        cout << "Enter number to be searched: ";
+                        cin >> k;
+                        o.search(k);
+                        break;
+                    case 2:
+                        o.sort();
+                        break;
+                    case 3:
+                        o.reverse();
+                        break;
+                    case 4:
+                        exit(0);
+                    default:
+                        cout << "Wrong choice\n";
+                }
+                cout << "Do you want to continue? Press y: ";
+                cin >> ans;
+            } while (ans == 'y' || ans == 'Y');
+        
+            return 0;
+        }
+        
+    

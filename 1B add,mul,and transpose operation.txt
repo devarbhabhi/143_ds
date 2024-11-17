@@ -1,0 +1,60 @@
+X = [[1, 2, 3],
+     [4, 5, 6],
+     [7, 8, 9]]
+
+Y = [[9, 8, 7],
+     [6, 5, 4],
+     [3, 2, 1]]
+
+Add = [[0, 0, 0],
+       [0, 0, 0],
+       [0, 0, 0]]
+mul = [[0, 0, 0],
+       [0, 0, 0],
+       [0, 0, 0]]
+
+while True:
+    print("The array 'X' has the following elements:", X)
+    print("The array 'Y' has the following elements:", Y)
+    print("\n 2D-A R R A Y O P E R A T I O N S")
+    print("1. Addition")
+    print("2. Multiplication")
+    print("3. Transpose")
+    print("4. Exit")
+    
+    
+    choice = int(input("Enter your choice (1-4): "))
+    
+    if choice == 1:
+        print("Addition")
+        for i in range(len(X)):
+            for j in range(len(X[0])):
+                Add[i][j] = X[i][j] + Y[i][j]
+        for r in Add:
+            print(r)
+    
+    elif choice == 2:
+        print("Multiplication")
+        for i in range(len(X)):
+            for j in range(len(Y[0])):
+                for k in range(len(Y)):
+                    mul[i][j] += X[i][k] * Y[k][j]
+        for r in mul:
+            print(r)
+    
+    elif choice == 3:
+        print("Transpose of X")
+       
+        rez = [[X[j][i] for j in range(len(X))] for i in range(len(X[0]))]
+        for row in rez:
+            print(row)
+    
+    elif choice == 4:
+        print("Exiting...")
+        break  # Exit the loop
+    
+    else:
+        print("Choice is not valid.")
+    
+    print("\nPress any key to continue...")
+    input()  

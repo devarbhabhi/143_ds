@@ -1,0 +1,46 @@
+class Deque:
+    def __init__(self):
+        self.items = []
+
+    def isEmpty(self):
+        return self.items == []
+
+    def addFront(self, item):
+        self.items.append(item)
+
+    def addRear(self, item):
+        self.items.insert(0, item)
+
+    def removeFront(self):
+        if not self.isEmpty():
+            return self.items.pop()
+        else:
+            print("Cannot remove from an empty deque.")
+            return None
+
+    def removeRear(self):
+        if not self.isEmpty():
+            return self.items.pop(0)
+        else:
+            print("Cannot remove from an empty deque.")
+            return None
+
+    def size(self):
+        return len(self.items)
+
+d = Deque()
+print(d.isEmpty())
+d.addRear(4)
+d.addRear('dog')
+d.addFront('cat')
+d.addFront(True)
+print(d.size())
+print(d.isEmpty())
+d.addRear(8.4)
+print("Deque elements:", d.items)
+d.removeFront()
+print("Deque elements after removing front:", d.items)
+d.removeRear()
+print("Deque elements after removing rear:", d.items)
+
+    

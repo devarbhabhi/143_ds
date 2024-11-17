@@ -1,0 +1,83 @@
+      #include <iostream>
+        using namespace std;
+        
+        class test {
+        public:
+            int a[5], b[5], c[10];
+        
+            void insert() {
+                cout << "Enter elements in first array" << endl;
+                for (int i = 0; i < 5; i++) {
+                    cin >> a[i];
+                }
+                cout << "Enter elements in Second array" << endl;
+                for (int i = 0; i < 5; i++) {
+                    cin >> b[i];
+                }
+            }
+        
+            void merge() {
+                cout << "After merging of two arrays" << endl;
+                for (int i = 0; i < 10; i++) {
+                    if (i < 5)
+                        c[i] = a[i];
+                    else
+                        c[i] = b[i - 5];
+                }
+            }
+        
+            void sort() {
+                int temp;
+                for (int i = 0; i < 9; i++) {
+                    for (int j = i + 1; j < 10; j++) {
+                        if (c[i] > c[j]) {
+                            temp = c[i];
+                            c[i] = c[j];
+                            c[j] = temp;
+                        }
+                    }
+                }
+            }
+        
+            void show() {
+                for (int i = 0; i < 10; i++) {
+                    cout << i << "th element of the array is: " << c[i] << "\n";
+                }
+            }
+        };
+        
+        int main() {
+            int n;
+            char ch;
+            test t;
+        
+            do {
+                cout << "select your choice \n1.Insert\n2.merge\n3.sort\n4.exit\n";
+                cin >> n;
+        
+                switch (n) {
+                    case 1:
+                        t.insert();
+                        break;
+                    case 2:
+                        t.merge();
+                        t.show();
+                        break;
+                    case 3:
+                        t.sort();
+                        t.show();
+                        break;
+                    case 4:
+                        exit(0);
+                    default:
+                        cout << "Invalid Input\n";
+                }
+        
+                cout << "Do you want to continue? (y/n)\n";
+                cin >> ch;
+            } while (ch == 'y');
+        
+            return 0;
+        }
+        
+    
